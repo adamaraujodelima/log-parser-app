@@ -1,0 +1,15 @@
+version: '3.7'
+services:
+
+  logparserapp:
+    image: node:16-alpine
+    tty: true
+    container_name: logparserapp    
+    volumes:
+      - "./:/app"      
+    networks:
+      - default-network
+
+networks:
+    default-network:
+      driver: bridge

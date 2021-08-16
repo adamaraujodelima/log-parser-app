@@ -1,0 +1,16 @@
+{
+  "name": "logparserapp",
+  "version": "1.0.0",
+  "description": "Application for read error logs",
+  "main": "parser.js",
+  "author": "Adam A. de Lima",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@types/node": "^16.6.1",
+    "typescript": "^4.3.5"
+  },
+  "bin": {
+    "parser": "./bin/parser.js"
+  }
+}
