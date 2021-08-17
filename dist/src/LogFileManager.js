@@ -4,6 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const LogFileInput_1 = __importDefault(require("./LogFileInput"));
+const LogFileOutput_1 = __importDefault(require("./LogFileOutput"));
 const LogFileReader_1 = __importDefault(require("./LogFileReader"));
 class LogFileManager {
     constructor(args) {
@@ -24,7 +25,8 @@ class LogFileManager {
         const pathInput = this._args[1];
         const fileInput = new LogFileInput_1.default(pathInput);
         const fileReader = new LogFileReader_1.default(fileInput);
-        return fileReader.read();
+        const fileOutput = new LogFileOutput_1.default(fileReader, this._args[3]);
+        return fileOutput.generateFile();
     }
 }
 exports.default = LogFileManager;

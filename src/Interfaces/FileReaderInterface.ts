@@ -2,7 +2,7 @@ import FileInputInterface from "./FileInputInterface";
 
 interface FileReaderInterface {
     _file: FileInputInterface;
-    _validate(): Boolean;
+    _validate(lines: Array<Object>): Boolean;
     read(): Array<Object>;
 }
 

@@ -1,4 +1,5 @@
 import LogFileInput from "./LogFileInput";
+import LogFileOutput from "./LogFileOutput";
 import LogFileReader from "./LogFileReader";
 class LogFileManager {
     
@@ -28,7 +29,8 @@ class LogFileManager {
         const pathInput = this._args[1];
         const fileInput = new LogFileInput(pathInput);
         const fileReader = new LogFileReader(fileInput);
-        return fileReader.read();
+        const fileOutput = new LogFileOutput(fileReader, this._args[3]);
+        return fileOutput.generateFile();
     }
 }
 
