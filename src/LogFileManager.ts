@@ -1,36 +1,35 @@
-const LogFileInputClass = require('./LogFileInput');
-const LogFileReaderClass = require('./LogFileReader');
+import LogFileInput from "./LogFileInput";
+import LogFileReader from "./LogFileReader";
 class LogFileManager {
     
-    _args: Array<Object>;
+    _args: string[];
     
-    constructor(args: Array<Object>) {
-        this._validate(args);
+    constructor(args: string[]) {
+        this._args = args;
+        this._validate();
     }
 
-    _validate(args: Array<Object>) {
+    _validate() {
 
-        if(!args)
+        if(this._args.length === 0)
             throw new Error("The arguments --input and --output was not passed!");            
         
-        if(args[0] !== '--input')
+        if(this._args[0] !== '--input')
             throw new Error("The --input argument is required!");
 
-        if(args[2] !== '--output')
+        if(this._args[2] !== '--output')
             throw new Error("The --output argument is required!");
             
-        this._args = args;
-
         return true;
     }
 
     run(){
         console.log(this._args);
         const pathInput = this._args[1];
-        const fileInput = new LogFileInputClass(pathInput);
-        const fileReader = new LogFileReaderClass(fileInput);
+        const fileInput = new LogFileInput(pathInput);
+        const fileReader = new LogFileReader(fileInput);
         return fileReader.read();
     }
 }
 
-module.exports = LogFileManager;
+export default LogFileManager;

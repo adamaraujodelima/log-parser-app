@@ -1,5 +1,9 @@
+import FileInputInterface from "./FileInputInterface";
+
 interface FileReaderInterface {
     _file: FileInputInterface;
-    _validate(file: FileInputInterface): Boolean;
+    _validate(): Boolean;
     read(): Array<Object>;
 }
+
+export default FileReaderInterface;

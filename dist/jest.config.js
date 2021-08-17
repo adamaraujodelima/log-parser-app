@@ -1,7 +1,7 @@
-import type { Config } from '@jest/types';
-
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 // Sync object
-const config: Config.InitialOptions = {
+const config = {
     verbose: true,
     roots: [
         "<rootDir>/tests"
@@ -15,5 +15,4 @@ const config: Config.InitialOptions = {
         "^.+\\.(js|jsx)$": "babel-jest",
     },
 };
-
 module.exports = config;

@@ -1,16 +1,16 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 class LogFileReader {
     constructor(file) {
-        this._validate(file);
-    }
-    _validate(file) {
-        if (!file)
-            throw new Error("The file argument was not passed!");
         this._file = file;
+    }
+    _validate() {
         return true;
     }
     read() {
-        const file = this._file.getFile();
+        const file = this._file.getFile().toString();
+        console.log(file);
         return [];
     }
 }
-module.exports = LogFileReader;
+exports.default = LogFileReader;

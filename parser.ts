@@ -1,7 +1,8 @@
-const [,, args] = process.argv;
+import LogFileManager from "./src/LogFileManager";
 
-const LogFileManagerClass = require('./src/LogFileManager');
+const args = process.argv.splice(2);
 
-const fileManager = new LogFileManagerClass(args);
+const fileManager = new LogFileManager(args);
 
-console.log(fileManager.run());
+fileManager.run();
+

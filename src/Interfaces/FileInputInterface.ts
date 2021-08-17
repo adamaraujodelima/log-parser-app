@@ -1,5 +1,7 @@
 interface FileInputInterface {
-    _file: Buffer;
-    _validate(path: string): any;
+    _path: string;
+    _validate(): Boolean;
     getFile(): Buffer;
 }
+
+export default FileInputInterface;

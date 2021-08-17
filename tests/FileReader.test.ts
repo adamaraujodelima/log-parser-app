@@ -1,12 +1,14 @@
-const FileReaderClass = require('../src/LogFileReader');
+import LogFileInput from '../src/LogFileInput';
+import LogFileReader from '../src/LogFileReader';
 
 describe('File Reader Class Unit Test', () => {
 
-    test('Should fail without File Input Interface', () => {
-        expect(() => {
-            const fileReader = new FileReaderClass();
-        }).toThrowError(new Error('The arguments --input and --output was not passed!'));
+    test('Should fail with invalid format content', () => {
+        expect(() => {            
+            const fileInput = new LogFileInput('/app/data/validFile.log');
+            const fileReader = new LogFileReader(fileInput);
+        }).toThrowError(new Error('The file input argument was not passed!'));
+   
     });
-    
 });
 

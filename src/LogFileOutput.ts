@@ -3,4 +3,4 @@ class LogFileOutput {
 
 }
 
-module.exports = LogFileOutput;
+export default LogFileOutput;

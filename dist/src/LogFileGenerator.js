@@ -1,3 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 class LogFileGenerator {
 }
-module.exports = LogFileGenerator;
+exports.default = LogFileGenerator;

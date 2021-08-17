@@ -1,3 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 class LogFileOutput {
 }
-module.exports = LogFileOutput;
+exports.default = LogFileOutput;

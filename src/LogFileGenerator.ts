@@ -3,4 +3,4 @@ class LogFileGenerator {
 
 }
 
-module.exports = LogFileGenerator;
+export default LogFileGenerator;

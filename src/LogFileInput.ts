@@ -1,21 +1,24 @@
+import FileInputInterface from "./Interfaces/FileInputInterface";
+
 const fs = require('fs');
 class LogFileInput implements FileInputInterface {
 
-    _file: Buffer;
+    _path: string;
 
-    constructor(path: string) {
-        this._validate(path);
+    constructor(path: string) {        
+        this._path = path;
+        this._validate();
     }
 
-    _validate(path: string) {
+    _validate() {
 
-        if (!path)
+        if (!this._path)
             throw new Error("The directory of file is required!");
 
-        if (fs.existsSync(path) === false)
+        if (fs.existsSync(this._path) === false)
             throw new Error("The file doesnt exists!");
 
-        const stats = fs.statSync(path);
+        const stats = fs.statSync(this._path);
         const fileSizeInBytes = stats.size;
 
         if (fileSizeInBytes === 0)
@@ -23,16 +26,15 @@ class LogFileInput implements FileInputInterface {
 
         const fileSizeInMegabytes = fileSizeInBytes / (1024 * 1024);
         if (fileSizeInMegabytes > 1000)
-            throw new Error("The file it's greather than 1gb!");
-
-        this._file = fs.readFileSync(path);
+            throw new Error("The file it's greather than 1gb!");        
 
         return true;
     }
 
     getFile(): Buffer {
-        return this._file;
+        const file = fs.readFileSync(this._path);
+        return file;
     }
 }
 
-module.exports = LogFileInput;
+export default LogFileInput;
