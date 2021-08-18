@@ -6,7 +6,12 @@ class LogFileOutput {
         this._file = file;
         this._output = output;
     }
-    generateFile() {
+    _validate() {
+        if (!this._output)
+            throw new Error('The directory of output is required!');
+        return true;
+    }
+    export() {
         const fileContent = this._file.read();
         fs_1.writeFile(this._output, JSON.stringify(fileContent), 'utf-8', (error) => {
             if (error) {

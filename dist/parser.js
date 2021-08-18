@@ -6,4 +6,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const LogFileManager_1 = __importDefault(require("./src/LogFileManager"));
 const args = process.argv.splice(2);
 const fileManager = new LogFileManager_1.default(args);
-fileManager.run();
+if (fileManager.validate()) {
+    fileManager.run();
+}

@@ -4,5 +4,8 @@ const args = process.argv.splice(2);
 
 const fileManager = new LogFileManager(args);
 
-fileManager.run();
+if(fileManager.validate()){    
+    fileManager.run();
+}
+
 

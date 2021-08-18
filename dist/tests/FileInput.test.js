@@ -21,11 +21,6 @@ describe('File Input Class Unit Test', () => {
             const fileInput = new LogFileInput_1.default('/app/data/emptyFile.log');
         }).toThrowError(new Error('The file cannot be empty!'));
     });
-    // test('Should fail file input if it is too large', () => {
-    //     expect(() => {
-    //         const fileInput = new LogFileInput('/app/data/validFile.log');
-    //     }).toThrowError(new Error("The file it's greather than 1gb!"));
-    // });
     test('Should return valid buffer file with same content', async () => {
         const path = '/app/data/validFile.log';
         const fileResponse = fs_1.readFileSync(path);

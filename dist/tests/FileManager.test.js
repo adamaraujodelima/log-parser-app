@@ -8,7 +8,7 @@ describe('File Manager Class Unit Test', () => {
     test('Should fail with empty arguments', () => {
         expect(() => {
             const fileManager = new LogFileManager_1.default([]);
-        }).toThrowError(new Error('The arguments --input and --output was not passed!'));
+        }).toThrowError(new Error('The arguments --input and --output was not passed. E.g: node parser.js --input {path_of_file} --output {path_of_new_file}.'));
     });
     test('Should fail without --input argument', () => {
         const args = [
