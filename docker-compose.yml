@@ -3,8 +3,9 @@ services:
 
   logparserapp:
     image: node:16-alpine
+    container_name: logparserapp      
+    working_dir: /app
     tty: true
-    container_name: logparserapp    
     volumes:
       - "./:/app"      
     networks:
